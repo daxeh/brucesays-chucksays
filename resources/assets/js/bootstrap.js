@@ -39,21 +39,23 @@ if (token) {
  * Pusher, a real-time web app for pub/sub messaging and helper library Echo
  * to easily subscribe and listen to Pusher events that are broadcast by Laravel.
  */
+
 import Echo from 'laravel-echo';
 
-// TODO: remove enable pusher logging - don't include this in production
-Pusher.logToConsole = true;
+window.Pusher = require('pusher-js');
+if (getenv('APP_ENV') === 'development') {
+  window.Pusher.logToConsole = true;
+}
 
-var pusher = new Pusher(getenv('PUSHER_APP_KEY'), {
+const pusher = new window.Pusher(getenv('PUSHER_APP_KEY'), {
   broadcaster: 'pusher',
   cluster: getenv('PUSHER_APP_CLUSTER'),
   encrypted: true
 });
 
-var channel = pusher.subscribe('chat');
-channel.bind('ping', function(data) {
+const channel = pusher.subscribe('chat');
+channel.bind('ping', data => {
   alert(data.message);
 });
 
-window.Pusher = require('pusher-js');
 window.Echo = new Echo(pusher);

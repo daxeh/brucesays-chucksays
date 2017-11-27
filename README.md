@@ -63,7 +63,11 @@ Jokes
 * [Redis](https://redis.io/download)
 * [Neo4J](https://neo4j.com/download/)
 
-## Quick Start/Deploy
+## Quick Start
+
+```
+docker-compose up -d
+```
 
 ## Testing
 
@@ -92,6 +96,7 @@ yarn install && yarn run dev
 * Author of articles mentioned in some code snippets
 * Graphics used/obtained from [giphy.com](https://giphy.com/),
   [flaticon.com](https://flaticon.com) and the web
+* Creators of [PHPDocker](https://phpdocker.io/generator)
 
 ---
 

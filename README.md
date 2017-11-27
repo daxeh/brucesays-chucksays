@@ -67,6 +67,26 @@ Jokes
 
 ## Testing
 
+## Troubleshoot
+
+#### ErrorException (E_ERROR) The Mix manifest does not exist.
+
+Ensure that `./webpack.mix.js` mix is set to `react`.
+
+```
+mix.react('resource..., 'public/js')
+    .sass('resource..., 'public/jcss');
+```
+
+Execute Laravel React preset which configures and scaffolds a boilerplate React
+view
+
+```
+yarn add babel-preset-react -D
+
+yarn install && yarn run dev
+```
+
 ## Credits
 
 * Author of articles mentioned in some code snippets

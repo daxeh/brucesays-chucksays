@@ -65,11 +65,6 @@
         </style>
     </head>
     <body>
-      <iframe
-        width="350"
-        height="430"
-        src="https://console.dialogflow.com/api-client/demo/embedded/40e2fac2-86e0-462b-b560-5251068ee85f">
-      </iframe>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">

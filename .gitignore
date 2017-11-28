@@ -1,12 +1,13 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
-## Dot files
+## Dot files/folders
 /.DS_Store
 /.idea
 /.vscode
 /.vscode-*
 /.nyc_output
 /.history
+/.docker-sync
 /.env
 /.mysql.env
 

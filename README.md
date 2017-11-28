@@ -9,8 +9,7 @@ chatbot.
 ## Description
 
 This project demonstrates various applications of technologies with an
-interactive joke telling chatbot using Chuck Norris Jokes
-[API](https://api.chucknorris.io/#!).
+interactive joke telling chatbot using Chuck Norris Jokes [API][1].
 
 Besides telling Chuck Norris jokes, it can serve as a base project for anyone
 who wishes to explore in the subject of **machine learning** or to further
@@ -18,9 +17,10 @@ understand specifics of user interaction as a natural language by the process of
 building, training and converting real conversation dialogs to structured data
 using the algorithms/models that you've develop.
 
-This Laravel/ReactJS app is built on a learning and work exploration made-up
-tech lingo [**`JAM-N-devilbox`**][1]stack, **N** being the graph database Neo4J
-which is hosted by GrapheneDB, database as a service.
+This Laravel/ReactJS app is built within a 5-day learning and work exploration
+with the made-up tech lingo [**`JAM-N-devilbox`**][2]stack, **N** being the
+graph database Neo4J which is hosted by GrapheneDB, database as a service. Some
+components were borrowed from [Trigger][3].
 
 <table class="techtable">
     <tr>
@@ -48,9 +48,15 @@ which is hosted by GrapheneDB, database as a service.
     </tr>
 </table>
 
-## API
+## Milestone Summary
 
-Jokes
+* Stage 0: Setup development enviroment (CD)
+* Stage 1: Configure build + deployment pipelines (CI/CD)
+* Stage 2: API + User Interface Design (UX/UCD)
+* Stage 3: Leaderboard Features
+* Release: [Demo][4]
+
+<TODO Deploy demo button>
 
 ## Requirements
 
@@ -65,11 +71,63 @@ Jokes
 
 ## Quick Start
 
+Make use of the convinience makefile;
+
 ```
-docker-compose up -d
+make install
+make start
+```
+
+**Or <TODO: replace development with production steps>**
+
+Manage package managers and docker separately by doing the following;
+
+_The two makefile commands above achieves the equivalant_
+
+* package installation (composer, npm)
+* docker composer and sync
+* npm build
+
+```
+composer install
+yarn install
+yarn run dev
+
+docker volume create --name=app_sync
+docker-compose -f docker-compose-dev.yml up -d
+docker-sync start
+```
+
+Then open http://localhost:8000 to view application.
+
+---
+
+To remove volume and containers.
+
+```
+make stop
+```
+
+**Or**
+
+```
+docker-sync stop
+docker-compose down
 ```
 
 ## Testing
+
+PHPUnit
+
+```
+
+```
+
+Jest/TapeJS
+
+```
+
+```
 
 ## Troubleshoot
 
@@ -82,8 +140,7 @@ mix.react('resource..., 'public/js')
     .sass('resource..., 'public/jcss');
 ```
 
-Execute Laravel React preset which configures and scaffolds a boilerplate React
-view
+Execute Laravel React preset which configures and scaffolds view, build to React
 
 ```
 yarn add babel-preset-react -D
@@ -91,13 +148,25 @@ yarn add babel-preset-react -D
 yarn install && yarn run dev
 ```
 
+#### No implicit conversion from nil to integer (TypeError) docker-sync/watch_strategy/unison.rb:30:in `kill'
+
+The issue with `docker-sync stop` is documented
+[here #356](https://github.com/EugenMayer/docker-sync/issues/356)
+
 ## Credits
 
 * Author of articles mentioned in some code snippets
 * Graphics used/obtained from [giphy.com](https://giphy.com/),
   [flaticon.com](https://flaticon.com) and the web
-* Creators of [PHPDocker](https://phpdocker.io/generator)
+* Creators of [PHPDocker](https://phpdocker.io/generator),
+  [Create-React-App](https://github.com/facebookincubator/create-react-app)
+* Resources from [Hacknoon](https://hackernoon.com/),
+  [Y.Pereira-Reis](https://ypereirareis.github.io/),
+  [K.Ferguson](https://kyleferg.com)
 
 ---
 
-[1]: https://en.wikipedia.org/wiki/Solution_stack
+[1]: https://api.chucknorris.io/#!
+[2]: https://en.wikipedia.org/wiki/Solution_stack
+[3]: https://github.com/daxeh/trigger
+[4]: https://brucesays-chucksays.herokuapp.com/

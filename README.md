@@ -15,11 +15,13 @@ Besides telling Chuck Norris jokes, it can serve as a base project for anyone
 who wishes to explore in the subject of **machine learning** or to further
 understand specifics of user interaction as a natural language by the process of
 building, training and converting real conversation dialogs to structured data
-using the algorithms/models that you've develop.
+using the algorithms/models that you've develop. This Laravel/ReactJS app is
+**_built within a 5-day learning and work exploration_** and surely there are
+many opportunities for improvements, suggestions or specific usecase requests,
+are welcomed.
 
-This Laravel/ReactJS app is built within a 5-day learning and work exploration
-with the made-up tech lingo [**`JAM-N-devilbox`**][2]stack, **N** being the
-graph database Neo4J which is hosted by GrapheneDB, database as a service. Some
+The made-up tech lingo [**`JAM-N-devilbox`**][2]stack, **N** being the graph
+database Neo4J which is hosted by GrapheneDB, database as a service. Some
 components were borrowed from [Trigger][3].
 
 <table class="techtable">
@@ -102,7 +104,7 @@ Then open http://localhost:8000 to view application.
 
 ---
 
-To remove volume and containers.
+To remove mounted volumes and containers.
 
 ```
 make stop

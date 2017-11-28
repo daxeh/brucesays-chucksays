@@ -21,6 +21,7 @@
 /public/storage
 /storage/*.key
 /vendor
+/phpdocker/php-fpm/*.ini
 
 
 ## Test covs

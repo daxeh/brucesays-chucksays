@@ -2,43 +2,67 @@
 #                          Generated on phpdocker.io                          #
 ###############################################################################
 version: "3.1"
+
 volumes:
     app_sync:
         external: true
+    dbdata:
+
 services:
 
     redis:
       image: redis:alpine
       restart: always
-      container_name: brucesays-chucksays-redis
+      container_name: bc-redis
 
     mysql:
       image: mysql:5.7
-      container_name: brucesays-chucksays-mysql
+      restart: always
+      container_name: bc-mysql
       working_dir: /application
       volumes:
-        - .:/application
+        - dbdata:/var/lib/mysql
       environment:
-        - MYSQL_ROOT_PASSWORD=root
-        - MYSQL_DATABASE=db
-        - MYSQL_USER=root
-        - MYSQL_PASSWORD=toor
+        - "MYSQL_DATABASE=${MYSQL_DATABASE}"
+        - "MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}"
+        - "MYSQL_USER=${MYSQL_USER}"
+        - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
       ports:
-        - "8002:3306"
+        - "3305:3306"
+
+    admin:
+      image: phpmyadmin/phpmyadmin
+      container_name: phpmyadmin
+      restart: always
+      ports:
+        - "8088:80"
+      environment:
+        - PMA_ARBITRARY=1
+        - PMA_HOST="${MYSQL_HOST}"
+      depends_on:
+        - mysql
+
+    elasticsearch:
+      image: elasticsearch:5.4-alpine
+      container_name: bc-elasticsearch
 
     webserver:
       image: nginx:alpine
-      container_name: brucesays-chucksays-webserver
+      container_name: bc-webserver
       working_dir: /application
       volumes:
-          - app_sync:/application:rw
-          - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+        - app_sync:/application:nocopy
+        - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      links:
+        - mysql
+        - php-fpm
+        - redis
       ports:
-       - "8000:80"
+        - "8000:80"
 
     php-fpm:
       build: phpdocker/php-fpm
-      container_name: brucesays-chucksays-php-fpm
+      container_name: bc-php-fpm
       working_dir: /application
       volumes:
         - .:/application

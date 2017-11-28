@@ -40,22 +40,12 @@ if (token) {
  * to easily subscribe and listen to Pusher events that are broadcast by Laravel.
  */
 
+import Pusher from 'pusher-js';
 import Echo from 'laravel-echo';
 
-window.Pusher = require('pusher-js');
-if (getenv('APP_ENV') === 'development') {
-  window.Pusher.logToConsole = true;
-}
-
-const pusher = new window.Pusher(getenv('PUSHER_APP_KEY'), {
+window.Echo = new Echo({
   broadcaster: 'pusher',
-  cluster: getenv('PUSHER_APP_CLUSTER'),
+  key: '5d4645eff37eab5886d7',
+  cluster: 'mt1',
   encrypted: true
 });
-
-const channel = pusher.subscribe('chat');
-channel.bind('ping', data => {
-  alert(data.message);
-});
-
-window.Echo = new Echo(pusher);

@@ -11,6 +11,8 @@ chatbot.
 This project demonstrates various applications of technologies with an
 interactive joke telling chatbot using Chuck Norris Jokes [API][1].
 
+![Screenshot](screenshot.png)
+
 Besides telling Chuck Norris jokes, it can serve as a base project for anyone
 who wishes to explore in the subject of **machine learning** or to further
 understand specifics of user interaction as a natural language by the process of
@@ -36,11 +38,11 @@ components were borrowed from [Trigger][3].
             <li> Ubuntu 16.04 </li>
             <li> Nginx 1.8.1 </li>
             <li> ReactJS 16.1.1</li>
-            <li> Laravel 5.5 </li>
+            <li> Laravel 5.5</li>
             <li> PHP 7.1 </li>
             <li> ES6 / Babel </li>
-            <li> Redis 3.2.9 / Predis</li>
-            <li> Neo4J / neo4j-php-client / GrapheneDB</li>
+            <li> Redis 3.2.9 / Predis <b>TODO</b></li>
+            <li> Neo4J / neo4j-php-client / GrapheneDB <b>TODO</b></li>
             <li> Pusher</li>
             <li> Docker </li>
           </ul>
@@ -55,7 +57,7 @@ components were borrowed from [Trigger][3].
 * Stage 0: Setup development enviroment (CD)
 * Stage 1: Configure build + deployment pipelines (CI/CD)
 * Stage 2: API + User Interface Design (UX/UCD)
-* Stage 3: Leaderboard Features
+* Stage 3: Leaderboard Features <b>TODO Redis/Graphene</b>
 * Release: [Demo][4]
 
 <TODO Deploy demo button>
@@ -119,17 +121,7 @@ docker-compose down
 
 ## Testing
 
-PHPUnit
-
-```
-
-```
-
-Jest/TapeJS
-
-```
-
-```
+<b>TODO</b>
 
 ## Troubleshoot
 
@@ -159,7 +151,8 @@ The issue with `docker-sync stop` is documented
 
 * Author of articles mentioned in some code snippets
 * Graphics used/obtained from [giphy.com](https://giphy.com/),
-  [flaticon.com](https://flaticon.com) and the web
+  [flaticon.com](https://flaticon.com), [icomoon.com](https://icomoon.com) and
+  the web
 * Creators of [PHPDocker](https://phpdocker.io/generator),
   [Create-React-App](https://github.com/facebookincubator/create-react-app)
 * Resources from [Hacknoon](https://hackernoon.com/),

@@ -37,3 +37,7 @@
 
 # misc
 /*.tmp
+
+# React, moved out monolithic repo
+/resources
+/resources/**/*

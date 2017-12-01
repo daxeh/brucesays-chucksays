@@ -1,0 +1,43 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+## Dot files/folders
+/.DS_Store
+/.idea
+/.vscode
+/.vscode-*
+/.nyc_output
+/.history
+/.docker-sync
+/.env
+/.mysql.env
+
+
+## Directories
+/bower_components
+/node_modules
+/build
+/dist
+/public/hot
+/public/storage
+/storage/*.key
+/vendor
+/phpdocker/php-fpm/*.ini
+
+
+## Test covs
+/coverage
+
+
+## Logs
+/logs
+/*.log
+/npm-debug.log*
+/yarn-error.log*
+
+
+# misc
+/*.tmp
+
+# React, moved out monolithic repo
+/resources
+/resources/**/*

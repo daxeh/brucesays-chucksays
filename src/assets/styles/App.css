@@ -1,0 +1,116 @@
+@-webkit-keyframes sweepright {
+    0% {
+        left: 0%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+@keyframes sweepright {
+    0% {
+        left: 0%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+@-webkit-keyframes pulsate {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    65% {
+        -webkit-transform: scale(2.75);
+        transform: scale(2.75);
+        opacity: 0;
+    }
+}
+@keyframes pulsate {
+    0% {
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    65% {
+        -webkit-transform: scale(2.75);
+        transform: scale(2.75);
+        opacity: 0;
+    }
+}
+@-webkit-keyframes stop-pulsate {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        -webkit-transform: scale(2);
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+@keyframes stop-pulsate {
+    from {
+        opacity: 0.4;
+    }
+    to {
+        -webkit-transform: scale(2);
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+/**
+  * This app specific styles, overriding base styles including resetting
+  * color variables to the following theme
+  *
+  *     POWDER BLUE #c4d4eo
+  *     NANTUKET #9aabb9
+  *     APRICOT #e2b49a
+  *     JASMINE #e9c77b
+  *     INK #193446
+  *
+  * @link http://paletton.com/#uid=3410P0kbePc81WV9LT-cpJHdeD1
+  **/
+html, body, input, select, button, textarea, table {
+    font-size: 100%;
+    font-family: 'Space Mono', monospace, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    --color-text: #414141;
+    --color-bg: #fff;
+    --color-link: #00ffd8;
+    --color-link-hover: #baffc9;
+    --color-close: #000;
+    --color-btn-hover: #6c4f70;
+    background: #ffffba;
+    margin: 0;
+    padding: 0;
+}
+
+html h1, body h1 {
+    text-align: center;
+    color: #3e4141;
+    font-size: 3rem;
+}
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin-top: 0;
+    transition: .2s ease-in;
+    -webkit-transition: .2s ease-in;
+    -moz-transition: .2s ease-in;
+    -o-transition: .2s ease-in;
+    -ms-transition: .2s ease-in;
+}

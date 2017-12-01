@@ -1,0 +1,20 @@
+{
+    "root": "dist/",
+    "clean_urls": true,
+    "logging": {
+        "access": false,
+        "error": "warn"
+    },
+    "https_only": true,
+    "headers": {
+        "/": {
+            "Cache-Control": "no-store, no-cache"
+        },
+        "/assets/**": {
+            "Cache-Control": "public, max-age=512000"
+        },
+        "/assets/webfonts/*": {
+            "Access-Control-Allow-Origin": "*"
+        }
+    }
+}

@@ -1,7 +1,6 @@
-# Bruce Says, Chuck Says (draft)
+# Bruce Says, Chuck Says (client)
 
 ![Heroku](https://heroku-badge.herokuapp.com/?app=heroku-badge)
-[ ![Codeship Status for daxeh/brucesays-chucksays](https://app.codeship.com/projects/de7720b0-b356-0135-9773-569517be71ea/status?branch=master)](https://app.codeship.com/projects/258222)
 
 Bruce says, Chuck says is a joke screaming **waaaaatarrrh!!** interactive
 chatbot.
@@ -164,4 +163,4 @@ The issue with `docker-sync stop` is documented
 [1]: https://api.chucknorris.io/#!
 [2]: https://en.wikipedia.org/wiki/Solution_stack
 [3]: https://github.com/daxeh/trigger
-[4]: https://brucesays-chucksays.herokuapp.com/
+[4]: https://brucesays-chucksays-showtime.herokuapp.com/

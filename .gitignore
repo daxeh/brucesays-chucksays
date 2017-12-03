@@ -22,7 +22,7 @@
 /storage/*.key
 /vendor
 /phpdocker/php-fpm/*.ini
-
+/.gtm/
 
 ## Test covs
 /coverage
@@ -34,10 +34,5 @@
 /npm-debug.log*
 /yarn-error.log*
 
-
 # misc
 /*.tmp
-
-# React, moved out monolithic repo
-/resources
-/resources/**/*

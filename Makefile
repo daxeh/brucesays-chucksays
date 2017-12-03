@@ -4,7 +4,6 @@
 ## (c) 2017 .:hex ... ....- -..- --- .-. .. xǝɥ:.
 
 include .env
-include .mysql.env
 
 .DEFAULT_GOAL := help
 
@@ -26,18 +25,11 @@ update: ## make update - Update Composer and NPM packages
 	@composer update
 	@yarn upgrade
 
-mysqlenv: ## make mysqlenv - Set env vars
-	@docker-compose run -e MYSQL_DATABASE=$(MYSQL_DATABASE) mysql
-	@docker-compose run -e MYSQL_ROOT_PASSWORD=$(MYSQL_ROOT_PASSWORD) mysql
-	@docker-compose run -e MYSQL_USER=$(MYSQL_USER) mysql
-	@docker-compose run -e MYSQL_PASSWORD=$(MYSQL_PASSWORD) mysql
-
 start: ## make start - Start containers compose and sync, watch, mount
 	@docker-sync-stack start
 	@yarn run dev &
 	@yarn run watch &
 	@docker volume create --name=app_sync &
-	@make mysqlenv
 	@docker-compose -f docker-compose-dev.yml -f docker-compose.yml up
 
 stop: ## make stop - Kill containers, delete, and unmount volumes

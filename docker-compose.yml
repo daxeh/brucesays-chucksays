@@ -2,60 +2,39 @@
 #                          Generated on phpdocker.io                          #
 ###############################################################################
 version: "3.1"
+
 services:
+    memcached:
+        image: memcached:alpine
+        container_name: bc-memcached
 
     redis:
-      image: redis:alpine
-      restart: always
-      container_name: bc-redis
-
-    mysql:
-      image: mysql:5.7
-      restart: always
-      container_name: bc-mysql
-      working_dir: /application
-      environment:
-        - "MYSQL_DATABASE=${MYSQL_DATABASE}"
-        - "MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}"
-        - "MYSQL_USER=${MYSQL_USER}"
-        - "MYSQL_PASSWORD=${MYSQL_PASSWORD}"
-      ports:
-        - "3305:3306"
-
-    admin:
-      image: phpmyadmin/phpmyadmin
-      container_name: bc_admin
-      restart: always
-      ports:
-        - "8088:80"
-      environment:
-        - PMA_ARBITRARY=1
-        - PMA_HOST="${MYSQL_HOST}"
-      depends_on:
-        - mysql
+        image: redis:alpine
+        restart: always
+        container_name: bc-redis
 
     elasticsearch:
-      image: elasticsearch:5.4-alpine
-      container_name: bc-elasticsearch
+        image: elasticsearch:5.4-alpine
+        container_name: bc-elasticsearch
 
     webserver:
-      image: nginx:alpine
-      container_name: bc-webserver
-      working_dir: /application
-      volumes:
-        - .:/application
-        - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      links:
-        - mysql
-        - php-fpm
-        - redis
-      ports:
-        - "8000:80"
+        image: nginx:alpine
+        container_name: bc-webserver
+        working_dir: /application
+        volumes:
+            - .:/application
+            - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+        links:
+            - php-fpm
+            - elasticsearch
+            - redis
+        ports:
+            - "8000:80"
 
     php-fpm:
-      build: phpdocker/php-fpm
-      container_name: bc-php-fpm
-      working_dir: /application
-      volumes:
-        - .:/application
-        - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
+        build: phpdocker/php-fpm
+        container_name: bc-php-fpm
+        working_dir: /application
+        volumes:
+            - .:/application
+            - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini

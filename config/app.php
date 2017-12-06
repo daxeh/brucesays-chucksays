@@ -174,6 +174,9 @@ return [
         // Pusher bridge, for rt activity stream
         Pusher\Laravel\PusherServiceProvider::class,
 
+        // Laravel IDE helper
+        'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
+
         /*
          * Application Service Providers...
          */

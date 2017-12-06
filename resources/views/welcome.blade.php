@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Bruce says | Chuck says</title>
 
@@ -71,8 +72,7 @@
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
+                        <a href="https://github.com/daxeh/brucesays-chucksays">GitHub</a>
                     @endauth
                 </div>
             @endif
@@ -83,7 +83,6 @@
                 </div>
 
                 <div class="links">
-                    <a href="https://github.com/daxeh/brucesays-chucksays">GitHub</a>
                     <a href="https://brucesays-chucksays-showtime.herokuapp.com">Enter</a>
                 </div>
             </div>

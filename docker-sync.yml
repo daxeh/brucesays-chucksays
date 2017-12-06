@@ -3,7 +3,7 @@ options:
   compose-file-path: 'docker-compose.yml'
   compose-dev-file-path: 'docker-compose-dev.yml'
 verbose: true
-max_attempt: 5
+max_attempt: 10
 syncs:
   app-sync:
     src: '.'

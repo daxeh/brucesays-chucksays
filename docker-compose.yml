@@ -28,6 +28,8 @@ services:
             - php-fpm
             - elasticsearch
             - redis
+        expose:
+            - "9000"
         ports:
             - "8000:80"
 
